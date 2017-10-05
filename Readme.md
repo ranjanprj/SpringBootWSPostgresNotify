@@ -7,11 +7,8 @@ POC to show WebSocket updates in SpringBoot using  Postgres Listen/Notify
 5. Go over to http://localhost:8080/ and press connect
 
 
-![PG Listen/Notify Websocket](https://github.com/ranjanprj/SpringBootWSPostgresNotify/blob/master/src/main/resources/static/Springboot%20WS%20PG.gif "SpringBoot", PG Listen/Notify Websocket")
 
 
-
-
-![OpenUI5, PG Listen/Notify Websocket](https://github.com/ranjanprj/pgsync/blob/master/src/main/webapp/PG_UI5_LISTENNOTIFY.gif "OpenUI5, PG Listen/Notify Websocket")
+![OpenUI5, PG Listen/Notify Websocket](https://github.com/ranjanprj/SpringBootWSPostgresNotify/blob/master/src/main/resources/static/Springboot%20WS%20PG.gif "OpenUI5, PG Listen/Notify Websocket")
 
 
