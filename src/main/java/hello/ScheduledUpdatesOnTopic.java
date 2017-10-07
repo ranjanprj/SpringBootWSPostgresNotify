@@ -24,6 +24,7 @@ public class ScheduledUpdatesOnTopic {
 
     @Scheduled(fixedDelay = 3000)
     public void publishUpdates() {
+     
         System.out.println("****************Listening PG Notify*******************");
         try {
             // issue a dummy query to contact the backend
@@ -31,7 +32,7 @@ public class ScheduledUpdatesOnTopic {
             Connection conn = PGConn.getConn();
             PGConnection pgconn = (org.postgresql.PGConnection)conn;
             Statement stmt = conn.createStatement();
-            stmt.execute("LISTEN mymessage");
+            stmt.execute("LISTEN messages");
             ResultSet rs = stmt.executeQuery("SELECT 1");
             rs.close();
             stmt.close();
@@ -42,7 +43,9 @@ public class ScheduledUpdatesOnTopic {
                 
                 for (int i = 0; i < notifications.length; i++) {
                     System.out.println("Got notification: " + notifications[i].getName() + notifications[i].getParameter());
-                    template.convertAndSend("/topic/greetings", "GOT NOTIFICATION FROM POSTGRES : " + notifications[i].getName() +  " -> " + notifications[i].getParameter());
+                    String[] msgs = notifications[i].getParameter().split("\\|");
+                    System.out.println(msgs[0].trim()+ " -- "+ msgs[1].trim());
+                    template.convertAndSendToUser(msgs[0].trim(),"/topic/greetings", msgs[1]);
                 }
             }
 

@@ -16,8 +16,17 @@ function connect() {
     var socket = new SockJS('/gs-guide-websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
+        console.log("CONNECTING.....................")
+        console.log(frame.headers['user-name']);
+        whoami = frame.headers['user-name'];
+        console.log('Connected: ' + frame);
         setConnected(true);
         console.log('Connected: ' + frame);
+        stompClient.subscribe('/user/topic/greetings', function(greeting) {
+             console.log("PG NOTIFY"  );
+             console.log(greeting.body);
+            showGreeting(greeting.body);
+          });
         stompClient.subscribe('/topic/greetings', function (greeting) {
             console.log("&&&;");
             $("div#pgmsg").html(greeting.body).fadeToggle();

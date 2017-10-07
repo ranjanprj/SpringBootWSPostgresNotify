@@ -25,7 +25,7 @@ public class PGConn {
 
             if (conn == null) {
 
-                String url = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=postgres&ssl=false";
+                String url = "jdbc:postgresql://localhost:5432/postgres?user=postgres&password=Linuxlove01&ssl=false";
                 conn =  DriverManager.getConnection(url);
                 
              
