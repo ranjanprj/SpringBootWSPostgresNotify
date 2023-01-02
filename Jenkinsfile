@@ -5,7 +5,7 @@ pipeline {
     jdk "rhopenjdk8"
   }
   parameters{
-    choice(name "environment" , choices:["DEV","QA","PROD"])
+    choice(name:"environment" , choices:["DEV","QA","PROD"])
   }
   stages {
     stage('build') {
