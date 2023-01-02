@@ -9,4 +9,7 @@ pipeline {
     }
 
   }
+  environment {
+    envtest = 'test'
+  }
 }
