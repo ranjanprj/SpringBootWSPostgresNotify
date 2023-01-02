@@ -4,6 +4,9 @@ pipeline {
     maven "maven3"
     jdk "rhopenjdk8"
   }
+  parameters{
+    choice(name "environment" , choices:["DEV","QA","PROD"])
+  }
   stages {
     stage('build') {
       steps {
