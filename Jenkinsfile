@@ -1,12 +1,12 @@
-pipeline{
+pipeline {
   agent any
-  
-  stages{
-    stage("build"){
-      steps{
-        echo "hello world"
-      }    
-      
+  stages {
+    stage('build') {
+      steps {
+        echo 'building'
+        sh 'mvn clean install'
+      }
     }
+
   }
 }
